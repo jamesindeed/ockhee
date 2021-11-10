@@ -6,6 +6,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.2",
+    "@heroicons/react": "^1.0.5",
     "graphql": "^16.0.1",
     "graphql-request": "^3.6.1",
     "html-react-parser": "^1.4.0",
