@@ -43,11 +43,11 @@ const recentPosts = [
   { id: 3, name: "Improve the way you write with Vue", href: "#" },
 ];
 
-export default function Example() {
+export default function Header() {
   return (
     <Popover className="relative bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+      <div className="max-w-full mx-auto">
+        <div className="px-8 flex justify-between items-center border-b-2 border-gray-100 py-4 md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <a href="#">
               <span className="sr-only">Logo</span>
@@ -92,7 +92,7 @@ export default function Example() {
       >
         <Popover.Panel
           focus
-          className="absolute max-w-7xl mx-auto md:pt-5 top-0 inset-x-0 p-2 transition transform origin-top-right"
+          className="z-50 absolute max-w-7xl mx-auto md:pt-5 top-0 inset-x-0 p-2 transition transform origin-top-right"
         >
           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
             <div className="pt-5 pb-6 px-5">
@@ -174,7 +174,7 @@ export default function Example() {
               <div className="mt-5 text-sm">
                 <a
                   href="#"
-                  className="font-medium text-pink-500 hover:text-pink-400"
+                  className="font-medium text-indigo-500 hover:text-indigo-400"
                 >
                   {" "}
                   View all posts <span aria-hidden="true">&rarr;</span>
