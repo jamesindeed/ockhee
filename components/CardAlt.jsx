@@ -6,11 +6,11 @@ const CardAlt = ({ post }) => {
   return (
     <Link href={`/post/${post.slug}`}>
       <div className="card cursor-pointer hover:-translate-y-1 transition-all duration-00 bg-white border border-gray-200 rounded-lg p-0 lg:p-6 pb-6 mb-8">
-        <div className="relative overflow-hidden pb-80 mb-6 shadow-sm">
+        <div className="relative overflow-hidden pb-80 mb-6 rounded-t-lg lg:rounded-lg">
           <img
             src={post.featuredImage.url}
             alt={post.title}
-            className="object-top absolute h-80 w-full object-cover shadow-sm rounded-t-lg lg:rounded-lg"
+            className="object-top absolute h-80 w-full object-cover shadow-sm"
           />
         </div>
 
