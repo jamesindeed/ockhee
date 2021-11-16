@@ -4,19 +4,19 @@ import { getPosts } from "../services";
 
 export default function Home({ posts }) {
   return (
-    <div className="container mx-auto px-10 mb-8">
+    <div className="max-w-7xl container mx-auto px-10 mb-8">
       <Head>
         <title>Ockhee</title>
         <link rel="icon" href="/letter-o.png" />
       </Head>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-5">
-        <div className="lg:col-span-8 col-span-1">
+      <div className="grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-8 mt-8">
+        <div className="lg:col-span-8 md:col-span-5 col-span-1">
           {posts.map((post, index) => (
             <CardAlt post={post.node} key={index} />
           ))}
         </div>
-        <div className="lg:col-span-4 col-span-1">
-          <div className="lg:sticky relative top-8">
+        <div className="lg:col-span-4 md:col-span-3 col-span-1">
+          <div className="lg:sticky md:sticky relative md:top-8">
             <PostWidget />
             <Categories />
           </div>
