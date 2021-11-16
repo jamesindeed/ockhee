@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import {
   MenuIcon,
@@ -6,53 +6,56 @@ import {
   XIcon,
   ChatAlt2Icon,
 } from "@heroicons/react/outline";
+import { getRecentPosts, getCategories } from "../services";
+import Link from "next/link";
 
 const solutions = [
   {
     name: "Contact",
     description: "Contact Me.",
-    href: "#",
+    href: "/contact",
     icon: ChatAlt2Icon,
   },
 ];
-const catagories = [
-  {
-    name: "React",
-    slug: "#",
-  },
-  {
-    name: "Web Dev",
-    slug: "#",
-  },
-  {
-    name: "Resources",
-    slug: "#",
-  },
-  {
-    name: "Themes",
-    slug: "#",
-  },
-];
-const recentPosts = [
-  { id: 1, name: "React Prop Drilling", href: "#" },
-  {
-    id: 2,
-    name: "Angular Overview",
-    href: "#",
-  },
-  { id: 3, name: "Improve the way you write with Vue", href: "#" },
-];
+// const categories = [
+//   {
+//     name: "React",
+//     slug: "#",
+//   },
+//   {
+//     name: "Web Dev",
+//     slug: "#",
+//   },
+//   {
+//     name: "Resources",
+//     slug: "#",
+//   },
+//   {
+//     name: "Themes",
+//     slug: "#",
+//   },
+// ];
 
 export default function Header() {
+  const [recentPosts, setRecentPosts] = useState([]);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    getRecentPosts().then((res) => setRecentPosts(res));
+    getCategories().then((res) => setCategories(res));
+  }, []);
+
+  console.log(recentPosts);
+
   return (
     <Popover className="relative bg-white">
       <div className="max-w-full mx-auto">
-        <div className="px-8 flex justify-between items-center border-b-2 border-gray-100 py-4 md:space-x-10">
+        <div className="px-8 flex justify-between items-center border-b border-gray-200 py-3 md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
-            <a href="#">
+            <a href="/">
               <span className="sr-only">Logo</span>
               <img
-                className="h-12 w-auto"
+                className="h-10 w-auto"
                 // *Logo
                 src="/letter-o.png"
                 alt="Logo"
@@ -134,44 +137,46 @@ export default function Header() {
                     Catagories
                   </span>
 
-                  {catagories.map((item) => (
+                  {categories.map((category, index) => (
                     <a
-                      key={item.name}
-                      href={item.slug}
-                      className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                      key={index}
+                      href={`/category/${category.slug}`}
+                      className="-m-3 p-3 flex categorys-center rounded-md hover:bg-gray-50"
                     >
                       <PlayIcon
                         className="flex-shrink-0 h-6 w-6 text-black"
                         aria-hidden="true"
                       />
                       {/* <img className="h-6 w-auto" src={item.icon} alt="Logo" /> */}
-                      <span className="ml-3 text-base font-medium text-gray-900">
-                        {item.name}
+                      <span className="ml-3 capitalize text-base font-medium text-gray-900">
+                        {category.name}
                       </span>
                     </a>
                   ))}
                 </nav>
               </div>
             </div>
+
             <div className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
               <div>
                 <h3 className="text-sm tracking-wide font-medium text-gray-500 uppercase">
                   Recent Posts
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
-                  {recentPosts.map((post) => (
-                    <li key={post.id} className="text-base truncate">
-                      <a
-                        href={post.href}
-                        className="font-medium text-gray-900 hover:text-gray-700"
+                  {recentPosts.map((post, index) => (
+                    <li>
+                      <Link
+                        key={index}
+                        href={`/post/${post.slug}`}
+                        className="text-base truncate font-medium text-gray-900 hover:text-gray-700"
                       >
-                        {post.name}
-                      </a>
+                        {post.title}
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="mt-5 text-sm">
+              {/* <div className="mt-5 text-sm">
                 <a
                   href="#"
                   className="font-medium text-indigo-500 hover:text-indigo-400"
@@ -179,7 +184,7 @@ export default function Header() {
                   {" "}
                   View all posts <span aria-hidden="true">&rarr;</span>
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </Popover.Panel>
