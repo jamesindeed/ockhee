@@ -139,7 +139,7 @@ export default function Header() {
                     <a
                       key={index}
                       href={`/category/${category.slug}`}
-                      className="flex p-3 -m-3 rounded-md categorys-center hover:bg-gray-50"
+                      className="flex p-2 -m-3 rounded-md categorys-center hover:bg-gray-50"
                     >
                       <PlayIcon
                         className="flex-shrink-0 w-6 h-6 text-black"
@@ -169,7 +169,7 @@ export default function Header() {
                 <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">
                   Recent Posts
                 </h3>
-                <ul role="list" className="mt-4 space-y-4">
+                <ul role="list" className="mt-3 space-y-3">
                   {recentPosts.map((post, index) => (
                     <li className="text-base font-medium text-gray-900 truncate hover:text-gray-700">
                       <Link key={index} href={`/post/${post.slug}`}>
