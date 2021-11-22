@@ -5,7 +5,7 @@ import moment from "moment";
 const CardAlt = ({ post }) => {
   return (
     <Link href={`/post/${post.slug}`}>
-      <div className="p-0 pb-6 mb-8 overflow-hidden transition-all bg-white border border-gray-200 rounded-lg cursor-pointer card hover:-translate-y-1 duration-00 lg:p-6">
+      <div className="p-0 pb-6 mb-8 overflow-hidden transition-all bg-white border border-gray-200 rounded-lg cursor-pointer last:mb-0 card hover:-translate-y-1 duration-00 lg:p-6">
         <div className="relative mb-6 overflow-hidden rounded-t-lg pb-60 lg:rounded-lg">
           <img
             src={post.featuredImage.url}

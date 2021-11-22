@@ -20,11 +20,11 @@ const responsive = {
   },
   tablet: {
     breakpoint: { max: 768, min: 640 },
-    items: 2,
+    items: 3,
   },
   mobile: {
     breakpoint: { max: 640, min: 0 },
-    items: 2,
+    items: 1,
   },
 };
 
@@ -40,7 +40,7 @@ const FeaturedPosts = () => {
   }, []);
 
   return (
-    <div className="mt-5">
+    <div className="mt-5 max-w-7xl">
       <Carousel ssr infinite responsive={responsive} itemClass="px-4">
         {dataLoaded &&
           featuredPosts.map((post, index) => (
