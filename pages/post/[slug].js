@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/router";
 
 import { getPosts, getPostDetails } from "../../services";
 
@@ -9,9 +10,15 @@ import {
   Author,
   Comments,
   CommentsForm,
+  Loader,
 } from "../../components";
 
 const PostDetails = ({ post }) => {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <Loader />;
+  }
   return (
     <div className="container px-10 mx-auto mt-5 mb-8 max-w-7xl">
       <div className="grid grid-cols-1 gap-8 md:grid-cols-8 lg:grid-cols-12 ">
