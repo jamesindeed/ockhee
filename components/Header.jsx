@@ -171,10 +171,11 @@ export default function Header() {
                 </h3>
                 <ul role="list" className="mt-3 space-y-3">
                   {recentPosts.map((post, index) => (
-                    <li className="text-base font-medium text-gray-900 truncate hover:text-gray-700">
-                      <Link key={index} href={`/post/${post.slug}`}>
-                        {post.title}
-                      </Link>
+                    <li
+                      key={index}
+                      className="text-base font-medium text-gray-900 truncate hover:text-gray-700"
+                    >
+                      <Link href={`/post/${post.slug}`}>{post.title}</Link>
                     </li>
                   ))}
                 </ul>

@@ -100,8 +100,11 @@ const PostDetail = ({ post }) => {
 
         <div className="px-6 py-2 lg:px-0">
           <div className="flex flex-row flex-wrap">
-            {post.categories.slice(0, 4).map((category) => (
-              <div className="px-2 py-1 mb-6 mr-2 text-xs text-indigo-700 uppercase bg-indigo-200 rounded-full">
+            {post.categories.slice(0, 4).map((category, index) => (
+              <div
+                key={index}
+                className="px-2 py-1 mb-6 mr-2 text-xs text-indigo-700 uppercase bg-indigo-200 rounded-full"
+              >
                 <p>#{category.name}</p>
               </div>
             ))}
