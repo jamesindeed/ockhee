@@ -4,10 +4,11 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
 export const getPosts = async () => {
   const POSTS = gql`
-    query getPosts {
+    query getPosts() {
       postsConnection(
         orderBy: createdAt_DESC
-        first: 4 # where: { skip: $skip }
+        # first: 4
+        # skip: 0
       ) {
         pageInfo {
           hasNextPage
@@ -44,7 +45,7 @@ export const getPosts = async () => {
 
   const res = await request(graphqlAPI, POSTS);
 
-  return res.postsConnection;
+  return res.postsConnection.edges;
 };
 
 export const getPostDetails = async (slug) => {
@@ -193,4 +194,41 @@ export const getFeaturedPosts = async () => {
   const result = await request(graphqlAPI, query);
 
   return result.posts;
+};
+
+export const getCategoryPost = async (slug) => {
+  const query = gql`
+    query GetCategoryPost($slug: String!) {
+      postsConnection(where: { categories_some: { slug: $slug } }) {
+        edges {
+          cursor
+          node {
+            author {
+              bio
+              name
+              id
+              photo {
+                url
+              }
+            }
+            createdAt
+            slug
+            title
+            excerpt
+            featuredImage {
+              url
+            }
+            categories {
+              name
+              slug
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.postsConnection.edges;
 };
