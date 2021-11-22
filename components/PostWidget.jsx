@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import Link from "next/link";
+import Image from "next/image";
+
+import { grpahCMSImageLoader } from "../util";
 
 import { getSimilarPosts, getRecentPosts } from "../services";
 
@@ -27,9 +30,13 @@ const PostWidget = ({ categories, slug }) => {
       {relatedPosts.map((post, index) => (
         <div key={index} className="flex items-center w-full px-5 pt-5">
           <div className="w-8 h-8 overflow-hidden align-middle rounded-full">
-            <img
+            <Image
+              unoptimized
+              loader={grpahCMSImageLoader}
+              height="60px"
+              width="60px"
               alt={post.title}
-              className="w-8 h-8 align-middle"
+              className="align-middle"
               src={post.featuredImage.url}
             />
           </div>

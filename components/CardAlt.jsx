@@ -1,16 +1,22 @@
 import React from "react";
 import Link from "next/link";
 import moment from "moment";
+import Image from "next/image";
+
+import { grpahCMSImageLoader } from "../util";
 
 const CardAlt = ({ post }) => {
   return (
     <Link href={`/post/${post.slug}`}>
       <div className="p-0 pb-6 mb-8 overflow-hidden transition-all bg-white border border-gray-200 rounded-lg cursor-pointer last:mb-0 card hover:-translate-y-1 duration-00 lg:p-6">
         <div className="relative mb-6 overflow-hidden rounded-t-lg pb-60 lg:rounded-lg">
-          <img
+          <Image
+            unoptimized
+            loader={grpahCMSImageLoader}
             src={post.featuredImage.url}
             alt={post.title}
             className="absolute object-cover object-top w-full shadow-sm h-60"
+            layout="fill"
           />
         </div>
 
@@ -29,8 +35,11 @@ const CardAlt = ({ post }) => {
             </div>
           </div>
           <div className="flex flex-row flex-wrap">
-            {post.categories.slice(0, 4).map((category) => (
-              <div className="px-2 py-1 mt-6 mr-2 text-xs text-indigo-700 uppercase bg-indigo-200 rounded-full">
+            {post.categories.slice(0, 4).map((category, index) => (
+              <div
+                key={index}
+                className="px-2 py-1 mt-6 mr-2 text-xs text-indigo-700 uppercase bg-indigo-200 rounded-full"
+              >
                 <p>#{category.name}</p>
               </div>
             ))}
