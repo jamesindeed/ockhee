@@ -5,7 +5,15 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 export const getPosts = async () => {
   const POSTS = gql`
     query getPosts {
-      postsConnection {
+      postsConnection(
+        orderBy: createdAt_DESC
+        first: 4 # where: { skip: $skip }
+      ) {
+        pageInfo {
+          hasNextPage
+          hasPreviousPage
+          pageSize
+        }
         edges {
           cursor
           node {
@@ -36,7 +44,7 @@ export const getPosts = async () => {
 
   const res = await request(graphqlAPI, POSTS);
 
-  return res.postsConnection.edges;
+  return res.postsConnection;
 };
 
 export const getPostDetails = async (slug) => {
