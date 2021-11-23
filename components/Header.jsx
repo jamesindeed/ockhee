@@ -17,24 +17,6 @@ const solutions = [
     icon: ChatAlt2Icon,
   },
 ];
-// const categories = [
-//   {
-//     name: "React",
-//     slug: "#",
-//   },
-//   {
-//     name: "Web Dev",
-//     slug: "#",
-//   },
-//   {
-//     name: "Resources",
-//     slug: "#",
-//   },
-//   {
-//     name: "Themes",
-//     slug: "#",
-//   },
-// ];
 
 export default function Header() {
   const [recentPosts, setRecentPosts] = useState([]);
@@ -48,36 +30,78 @@ export default function Header() {
   return (
     <Popover className="relative bg-white">
       <div className="max-w-full mx-auto">
-        <div className="flex items-center justify-between px-8 py-3 border-b border-gray-200 md:space-x-10">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 md:px-8 md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <a href="/">
               <span className="sr-only">Logo</span>
               <img
+                id="logo"
                 className="w-auto h-10"
                 // *Logo
                 src="/logo1.gif"
                 alt="Logo"
               />
+              {/* 
+              // !Animated Logo
+              <div className="scotch-logo liquid-clip--hidden">
+                <img className="scotch-logo__image" src="" />
+                <svg className="scotch-logo__liquid" viewBox="0 0 30 48">
+                  <defs>
+                    <clipPath id="clip-path--glass">
+                      <path
+                        className="liquid__path-container"
+                        d="M 8.6 1.5 c 0 13.33 -4.17 20 -3.75 23.33 a 9.17 8.33 0 0 0 20.83 0 c 0.42 -3.33 -3.75 -10 -3.75 -23.33 Z"
+                      ></path>
+                    </clipPath>
+                    <clipPath id="clip-path--liquid">
+                      <path
+                        className="liquid__path liquid__path--top-clip"
+                        d="M -80 22 C -75.08 16 -69.08 16 -64.17 22 S -53.25 28 -48.33 22 S -37.42 16 -32.5 22 S -21.58 28 -16.67 22 S -5.75 16 -0.83 22 S 10.08 28 15 22 S 25.92 16 30.83 22 S 41.75 28 46.67 22 S 57.58 16 62.5 22 S 73.42 28 78.33 22 S 89.25 16 94.17 22 S 105.08 28 110 22 l 0 30 l -190 0"
+                      ></path>
+                    </clipPath>
+                  </defs>
+                  <g clip-path="url(#clip-path--glass)">
+                    <circle
+                      className="liquid__drop liquid__drop--top liquid__drop--1"
+                      cx="18.3"
+                      cy="3.3"
+                      r="1.5"
+                    ></circle>
+                    <circle
+                      className="liquid__drop liquid__drop--bottom liquid__drop--2"
+                      cx="12"
+                      cy="5"
+                      r="1.5"
+                    ></circle>
+                    <path
+                      className="liquid__path liquid__path--top"
+                      d="M -80 22 C -75.08 16 -69.08 16 -64.17 22 S -53.25 28 -48.33 22 S -37.42 16 -32.5 22 S -21.58 28 -16.67 22 S -5.75 16 -0.83 22 S 10.08 28 15 22 S 25.92 16 30.83 22 S 41.75 28 46.67 22 S 57.58 16 62.5 22 S 73.42 28 78.33 22 S 89.25 16 94.17 22 S 105.08 28 110 22 l 0 30 l -190 0"
+                    ></path>
+                    <path
+                      className="liquid__path liquid__path--bottom"
+                      d="M -70 24.5 C -65.92 18.5 -59.92 18.5 -55.83 24.5 S -45.75 30.5 -41.67 24.5 S -31.58 18.5 -27.5 24.5 S -17.42 30.5 -13.33 24.5 S -3.25 18.5 0.83 24.5 S 10.92 30.5 15 24.5 S 25.08 18.5 29.17 24.5 S 39.25 30.5 43.33 24.5 S 53.42 18.5 57.5 24.5 S 67.58 30.5 71.67 24.5 S 81.75 18.5 85.83 24.5 S 95.92 30.5 100 24.5 l 0 30 l -170 0"
+                    ></path>
+                    <g
+                      className="liquid__path--clip-container"
+                      clip-path="url(#clip-path--liquid)"
+                    >
+                      <path
+                        className="liquid__path liquid__path--bottom-clip"
+                        d="M -70 24.5 C -65.92 18.5 -59.92 18.5 -55.83 24.5 S -45.75 30.5 -41.67 24.5 S -31.58 18.5 -27.5 24.5 S -17.42 30.5 -13.33 24.5 S -3.25 18.5 0.83 24.5 S 10.92 30.5 15 24.5 S 25.08 18.5 29.17 24.5 S 39.25 30.5 43.33 24.5 S 53.42 18.5 57.5 24.5 S 67.58 30.5 71.67 24.5 S 81.75 18.5 85.83 24.5 S 95.92 30.5 100 24.5 l 0 30 l -170 0"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+              </div> */}
             </a>
           </div>
           <div className="-my-2 -mr-2">
             {" "}
-            {/* md:hidden */}
             <Popover.Button className="inline-flex items-center justify-center p-1 m-1 text-black bg-white rounded-md hover:text-black hover:bg-gray-100 focus:outline-none">
               <span className="sr-only">Open menu</span>
               <MenuAlt3Icon className="w-7 h-7" aria-hidden="true" />
             </Popover.Button>
           </div>
-
-          {/* Contact Button */}
-          {/* <div className="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white bg-black border border-transparent rounded-md shadow-sm whitespace-nowrap hover:bg-gray-800"
-            >
-              Contact
-            </a>
-          </div> */}
         </div>
       </div>
 
