@@ -1,9 +1,7 @@
 import Head from "next/head";
-
 import { FeaturedPosts } from "../sections";
 import { CardAlt, PostWidget, Categories } from "../components";
 import { getPosts } from "../services";
-import { useState } from "react";
 
 export default function Home({ posts }) {
   return (
