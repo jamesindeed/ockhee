@@ -2,6 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 
 import { getPosts, getPostDetails } from "../../services";
+import { NextPosts } from "../../sections";
 
 import {
   PostDetail,
@@ -25,6 +26,7 @@ const PostDetails = ({ post }) => {
         <div className="col-span-1 lg:col-span-8 md:col-span-5">
           <PostDetail post={post} />
           <Author author={post.author} />
+          <NextPosts slug={post.slug} createdAt={post.createdAt} />
           <CommentsForm slug={post.slug} />
           <Comments slug={post.slug} />
         </div>

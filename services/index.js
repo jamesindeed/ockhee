@@ -14,6 +14,7 @@ export const getPosts = async () => {
           hasNextPage
           hasPreviousPage
           pageSize
+          
         }
         edges {
           cursor
@@ -172,7 +173,7 @@ export const getComments = async (slug) => {
 };
 
 export const getFeaturedPosts = async () => {
-  const query = gql`
+  const GET_FEATURED_POSTS = gql`
     query GetCategoryPost() {
       posts(where: {featuredPost: true}) {
         author {
@@ -191,13 +192,13 @@ export const getFeaturedPosts = async () => {
     }   
   `;
 
-  const result = await request(graphqlAPI, query);
+  const result = await request(graphqlAPI, GET_FEATURED_POSTS);
 
   return result.posts;
 };
 
 export const getCategoryPost = async (slug) => {
-  const query = gql`
+  const GET_CATEGORY_POST = gql`
     query GetCategoryPost($slug: String!) {
       postsConnection(where: { categories_some: { slug: $slug } }) {
         edges {
@@ -228,7 +229,42 @@ export const getCategoryPost = async (slug) => {
     }
   `;
 
-  const result = await request(graphqlAPI, query, { slug });
+  const result = await request(graphqlAPI, GET_CATEGORY_POST, { slug });
 
   return result.postsConnection.edges;
+};
+
+export const getNextPosts = async (createdAt, slug) => {
+  const GET_NEXT_POSTS = gql`
+    query GetNextPosts($createdAt: DateTime!, $slug: String!) {
+      next: posts(
+        first: 1
+        orderBy: createdAt_ASC
+        where: { slug_not: $slug, AND: { createdAt_gte: $createdAt } }
+      ) {
+        title
+        featuredImage {
+          url
+        }
+        createdAt
+        slug
+      }
+      previous: posts(
+        first: 1
+        orderBy: createdAt_DESC
+        where: { slug_not: $slug, AND: { createdAt_lte: $createdAt } }
+      ) {
+        title
+        featuredImage {
+          url
+        }
+        createdAt
+        slug
+      }
+    }
+  `;
+
+  const res = await request(graphqlAPI, GET_NEXT_POSTS, { slug, createdAt });
+
+  return { next: res.next[0], previous: res.previous[0] };
 };
