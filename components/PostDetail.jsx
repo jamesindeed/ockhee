@@ -58,7 +58,7 @@ const PostDetail = ({ post }) => {
         );
       case "code-block":
         return (
-          <pre class="language-javascript">
+          <pre className="language-javascript">
             <code key={index}>
               {modifiedText.map((item, i) => (
                 <React.Fragment key={i}>{item}</React.Fragment>
