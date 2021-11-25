@@ -8,6 +8,10 @@ export default function Home({ posts }) {
     <div className="container px-10 mx-auto mb-8 max-w-7xl">
       <Head>
         <title>Ockhee</title>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
+        />
         <link rel="icon" href="/letter-o.png" />
       </Head>
       <span className="hidden sm:contents">
