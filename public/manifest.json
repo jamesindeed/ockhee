@@ -1,0 +1,62 @@
+{
+  "theme_color": "#818cf8",
+  "background_color": "#f8f9fb",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "name": "Ockhee",
+  "short_name": "Ockhee",
+  "description": "Ockhee is a web development blog discussing all things programming, development, web and life. Ockhee provides high quality and easy to understand content for web developers.",
+  "icons": [
+    {
+      "src": "/letter-o72.png",
+      "sizes": "72x",
+      "type": "image/png"
+    },
+    {
+      "src": "/letter-o96.png",
+      "sizes": "96x",
+      "type": "image/png"
+    },
+    {
+      "src": "/letter-o128.png",
+      "sizes": "128x",
+      "type": "image/png"
+    },
+    {
+      "src": "/letter-o128.png",
+      "sizes": "128x",
+      "type": "image/png"
+    },
+    {
+      "src": "/letter-o128.png",
+      "sizes": "128x",
+      "type": "image/png"
+    },
+    {
+      "src": "/letter-o192.png",
+      "sizes": "192x",
+      "type": "image/png"
+    },
+    {
+      "src": "/letter-o144.png",
+      "sizes": "144x",
+      "type": "image/png"
+    },
+    {
+      "src": "/letter-o256.png",
+      "sizes": "256x",
+      "type": "image/png"
+    },
+    {
+      "src": "/letter-o384.png",
+      "sizes": "384x",
+      "type": "image/png"
+    },
+    {
+      "src": "/letter-o.png",
+      "sizes": "512x",
+      "type": "image/png"
+    }
+  ]
+}

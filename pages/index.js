@@ -1,5 +1,5 @@
-import Head from "next/head";
 import { FeaturedPosts } from "../sections";
+import Head from "next/head";
 import { CardAlt, PostWidget, Categories } from "../components";
 import { getPosts } from "../services";
 
