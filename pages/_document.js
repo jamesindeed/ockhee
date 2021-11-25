@@ -11,7 +11,6 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="icon" href="/letter-o.png" />
-          <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touch-icon" href="/letter-o192.png" />
           <meta name="theme-color" content="#f8f9fb" />
           <meta name="apple-mobile-web-app-status-bar" content="#f8f9fb" />
@@ -62,7 +61,7 @@ class MyDocument extends Document {
           />
           <link rel="manifest" href="/manifest.json" />
 
-          <link rel="shortcut icon" href="/letter-o72.ico" />
+          <link rel="shortcut icon" href="/letter-o72.png" />
 
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:url" content="https://yourdomain.com" />
