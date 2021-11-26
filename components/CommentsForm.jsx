@@ -9,7 +9,7 @@ const CommentsForm = ({ slug }) => {
     name: undefined,
     email: undefined,
     comment: undefined,
-    storeData: undefined,
+    storeData: null,
   });
 
   useEffect(() => {
