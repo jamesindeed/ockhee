@@ -12,7 +12,7 @@ export default function Home({ posts }) {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
         />
-        <link rel="icon" href="/letter-o.png" />
+        <link rel="icon" href="/letter-o72.png" />
       </Head>
       <span className="hidden sm:contents">
         <FeaturedPosts />

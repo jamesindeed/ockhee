@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="icon" href="/letter-o.png" />
+          {/* <link rel="icon" href="/letter-o.png" />
           <link rel="apple-touch-icon" href="/letter-o192.png" />
           <meta name="theme-color" content="#f8f9fb" />
           <meta name="apple-mobile-web-app-status-bar" content="#f8f9fb" />
@@ -83,7 +83,7 @@ class MyDocument extends Document {
           <meta
             property="og:image"
             content="https://yourdomain.com/icons/apple-touch-icon.png"
-          />
+          /> */}
         </Head>
         <body>
           <Main />
