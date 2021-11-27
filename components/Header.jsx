@@ -1,19 +1,19 @@
-import { Fragment, useEffect, useState } from "react";
-import { Popover, Transition } from "@headlessui/react";
+import { Fragment, useEffect, useState } from 'react';
+import { Popover, Transition } from '@headlessui/react';
 import {
   MenuAlt3Icon,
   PlayIcon,
   XIcon,
   ChatAlt2Icon,
-} from "@heroicons/react/outline";
-import { getRecentPosts, getCategories } from "../services";
-import Link from "next/link";
+} from '@heroicons/react/outline';
+import { getRecentPosts, getCategories } from '../services';
+import Link from 'next/link';
 
 const solutions = [
   {
-    name: "Contact",
-    description: "Contact Me.",
-    href: "/contact",
+    name: 'Contact',
+    description: 'Contact Me.',
+    href: '/contact',
     icon: ChatAlt2Icon,
   },
 ];
@@ -28,18 +28,18 @@ export default function Header() {
   }, []);
 
   return (
-    <Popover className="relative bg-white">
-      <div className="max-w-full mx-auto">
-        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 md:px-8 md:space-x-10">
-          <div className="flex justify-start lg:w-0 lg:flex-1">
-            <a href="/">
-              <span className="sr-only">Logo</span>
+    <Popover className='relative bg-white'>
+      <div className='max-w-full mx-auto'>
+        <div className='flex items-center justify-between px-4 py-3 border-b border-gray-200 md:px-8 md:space-x-10'>
+          <div className='flex justify-start lg:w-0 lg:flex-1'>
+            <a href='/'>
+              <span className='sr-only'>Logo</span>
               <img
-                id="logo"
-                className="w-auto h-10"
+                id='logo'
+                className='w-auto h-10'
                 // *Logo
-                src="/logo1.gif"
-                alt="Logo"
+                src='/logo1.gif'
+                alt='Logo'
               />
               {/* 
               // !Animated Logo
@@ -95,11 +95,11 @@ export default function Header() {
               </div> */}
             </a>
           </div>
-          <div className="-my-2 -mr-2">
-            {" "}
-            <Popover.Button className="inline-flex items-center justify-center p-1 m-1 text-black bg-white rounded-md hover:text-black hover:bg-gray-100 focus:outline-none">
-              <span className="sr-only">Open menu</span>
-              <MenuAlt3Icon className="w-7 h-7" aria-hidden="true" />
+          <div className='-my-2 -mr-2'>
+            {' '}
+            <Popover.Button className='inline-flex items-center justify-center p-1 m-1 text-black bg-white rounded-md hover:text-black hover:bg-gray-100 focus:outline-none'>
+              <span className='sr-only'>Open menu</span>
+              <MenuAlt3Icon className='w-7 h-7' aria-hidden='true' />
             </Popover.Button>
           </div>
         </div>
@@ -108,54 +108,54 @@ export default function Header() {
       {/* Mobile Menu */}
       <Transition
         as={Fragment}
-        enter="duration-200 ease-out"
-        enterFrom="opacity-0 scale-95"
-        enterTo="opacity-100 scale-100"
-        leave="duration-100 ease-in"
-        leaveFrom="opacity-100 scale-100"
-        leaveTo="opacity-0 scale-95"
+        enter='duration-200 ease-out'
+        enterFrom='opacity-0 scale-95'
+        enterTo='opacity-100 scale-100'
+        leave='duration-100 ease-in'
+        leaveFrom='opacity-100 scale-100'
+        leaveTo='opacity-0 scale-95'
       >
         <Popover.Panel
           focus
-          className="absolute inset-x-0 top-0 z-50 p-2 mx-auto transition origin-top-right transform max-w-7xl md:pt-5"
+          className='absolute inset-x-0 top-0 z-50 p-2 mx-auto transition origin-top-right transform max-w-7xl md:pt-5'
         >
-          <div className="bg-white divide-y-2 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-gray-50">
-            <div className="px-5 pt-5 pb-6">
-              <div className="flex items-center justify-between">
+          <div className='bg-white divide-y-2 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-gray-50'>
+            <div className='px-5 pt-5 pb-6'>
+              <div className='flex items-center justify-between'>
                 <div>
                   <img
-                    className="w-auto h-10"
+                    className='w-auto h-10'
                     // *Logo for mobile menu
-                    src="/logo1.gif"
-                    alt="Logo"
+                    src='/logo1.gif'
+                    alt='Logo'
                   />
                 </div>
-                <div className="-mr-2">
-                  <Popover.Button className="inline-flex items-center justify-center p-2 text-black bg-white rounded-md hover:text-black hover:bg-gray-100 focus:outline-none">
-                    <span className="sr-only">Close menu</span>
-                    <XIcon className="w-6 h-6" aria-hidden="true" />
+                <div className='-mr-2'>
+                  <Popover.Button className='inline-flex items-center justify-center p-2 text-black bg-white rounded-md hover:text-black hover:bg-gray-100 focus:outline-none'>
+                    <span className='sr-only'>Close menu</span>
+                    <XIcon className='w-6 h-6' aria-hidden='true' />
                   </Popover.Button>
                 </div>
               </div>
-              <div className="mt-8">
-                <nav className="grid bg-white gap-y-8">
+              <div className='mt-8'>
+                <nav className='grid bg-white gap-y-8'>
                   {solutions.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
-                      className="flex items-center p-3 -m-3 rounded-md hover:bg-gray-50"
+                      className='flex items-center p-3 -m-3 rounded-md hover:bg-gray-50'
                     >
                       <item.icon
-                        className="flex-shrink-0 w-6 h-6 text-black"
-                        aria-hidden="true"
+                        className='flex-shrink-0 w-6 h-6 text-black'
+                        aria-hidden='true'
                       />
-                      <span className="ml-3 text-base font-medium text-gray-900">
+                      <span className='ml-3 text-base font-medium text-gray-900'>
                         {item.name}
                       </span>
                     </a>
                   ))}
 
-                  <span className="text-base font-bold text-gray-900">
+                  <span className='text-base font-bold text-gray-900'>
                     Catagories
                   </span>
 
@@ -163,54 +163,54 @@ export default function Header() {
                     <a
                       key={index}
                       href={`/category/${category.slug}`}
-                      className="flex p-2 -m-3 rounded-md categorys-center hover:bg-gray-50"
+                      className='flex p-2 -m-3 rounded-md categorys-center hover:bg-gray-50'
                     >
                       <PlayIcon
-                        className="flex-shrink-0 w-6 h-6 text-black"
-                        aria-hidden="true"
+                        className='flex-shrink-0 w-6 h-6 text-black'
+                        aria-hidden='true'
                       />
-                      <span className="ml-3 text-base font-medium text-gray-900 capitalize">
+                      <span className='ml-3 text-base font-medium text-gray-900 capitalize'>
                         {category.name}
                       </span>
                     </a>
                   ))}
 
-                  <div className="text-sm">
+                  <div className='text-sm'>
                     <a
-                      href="/category"
-                      className="font-medium text-indigo-500 hover:text-indigo-400"
+                      href='/category'
+                      className='font-medium text-indigo-500 hover:text-indigo-400'
                     >
-                      {" "}
-                      View all catagories <span aria-hidden="true">&rarr;</span>
+                      {' '}
+                      View all catagories <span aria-hidden='true'>&rarr;</span>
                     </a>
                   </div>
                 </nav>
               </div>
             </div>
 
-            <div className="px-5 py-5 rounded-b-lg bg-gray-50">
+            <div className='px-5 py-5 rounded-b-lg bg-gray-50'>
               <div>
-                <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">
+                <h3 className='text-sm font-medium tracking-wide text-gray-500 uppercase'>
                   Recent Posts
                 </h3>
-                <ul role="list" className="mt-3 space-y-3">
+                <ul role='list' className='mt-3 space-y-3'>
                   {recentPosts.map((post, index) => (
                     <li
                       key={index}
-                      className="text-base font-medium text-gray-900 truncate hover:text-gray-700"
+                      className='text-base font-medium text-gray-900 truncate hover:text-gray-700'
                     >
                       <Link href={`/post/${post.slug}`}>{post.title}</Link>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="mt-5 text-sm">
+              <div className='mt-5 text-sm'>
                 <a
-                  href="/"
-                  className="font-medium text-indigo-500 hover:text-indigo-400"
+                  href='/'
+                  className='font-medium text-indigo-500 hover:text-indigo-400'
                 >
-                  {" "}
-                  View all posts <span aria-hidden="true">&rarr;</span>
+                  {' '}
+                  View all posts <span aria-hidden='true'>&rarr;</span>
                 </a>
               </div>
             </div>

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { submitComment } from "../services";
+import React, { useState, useEffect } from 'react';
+import { submitComment } from '../services';
 
 const CommentsForm = ({ slug }) => {
   const [error, setError] = useState(false);
@@ -15,19 +15,19 @@ const CommentsForm = ({ slug }) => {
   useEffect(() => {
     setLocalStorage(window.localStorage);
     const initalFormData = {
-      name: window.localStorage.getItem("name"),
-      email: window.localStorage.getItem("email"),
+      name: window.localStorage.getItem('name'),
+      email: window.localStorage.getItem('email'),
       comment: undefined,
       storeData:
-        window.localStorage.getItem("name") ||
-        window.localStorage.getItem("email"),
+        window.localStorage.getItem('name') ||
+        window.localStorage.getItem('email'),
     };
     setFormData(initalFormData);
   }, []);
 
   const onInputChange = (e) => {
     const { target } = e;
-    if (target.type === "checkbox") {
+    if (target.type === 'checkbox') {
       setFormData((prevState) => ({
         ...prevState,
         [target.name]: target.checked,
@@ -55,20 +55,20 @@ const CommentsForm = ({ slug }) => {
     };
 
     if (storeData) {
-      localStorage.setItem("name", name);
-      localStorage.setItem("email", email);
+      localStorage.setItem('name', name);
+      localStorage.setItem('email', email);
     } else {
-      localStorage.removeItem("name");
-      localStorage.removeItem("email");
+      localStorage.removeItem('name');
+      localStorage.removeItem('email');
     }
 
     submitComment(commentObj).then((res) => {
       if (res.createComment) {
         if (!storeData) {
-          formData.name = "";
-          formData.email = "";
+          formData.name = '';
+          formData.email = '';
         }
-        formData.comment = "";
+        formData.comment = '';
         setFormData((prevState) => ({
           ...prevState,
           ...formData,
@@ -82,64 +82,64 @@ const CommentsForm = ({ slug }) => {
   };
 
   return (
-    <div className="p-8 pb-12 mb-8 bg-white border border-gray-200 rounded-lg">
-      <h3 className="pb-4 mb-4 text-xl font-semibold">Leave a Comment</h3>
-      <div className="grid grid-cols-1 gap-4 mb-4">
+    <div className='p-8 pb-12 mb-8 bg-white border border-gray-200 rounded-lg'>
+      <h3 className='pb-4 mb-4 text-xl font-semibold'>Leave a Comment</h3>
+      <div className='grid grid-cols-1 gap-4 mb-4'>
         <textarea
           value={formData.comment}
           onChange={onInputChange}
-          className="w-full h-40 p-4 text-sm text-gray-700 bg-gray-100 rounded-lg outline-none min-h-40 max-h-100 focus:ring-2 focus:ring-gray-200"
-          name="comment"
-          placeholder="Comment"
+          className='w-full h-40 p-4 text-sm text-gray-700 bg-gray-100 rounded-lg outline-none min-h-40 max-h-100 focus:ring-2 focus:ring-gray-200'
+          name='comment'
+          placeholder='Comment'
         />
       </div>
-      <div className="grid grid-cols-1 gap-4 mb-4 lg:grid-cols-2">
+      <div className='grid grid-cols-1 gap-4 mb-4 lg:grid-cols-2'>
         <input
-          type="text"
+          type='text'
           value={formData.name}
           onChange={onInputChange}
-          className="w-full px-4 py-2 text-sm text-gray-700 bg-gray-100 rounded-lg outline-none focus:ring-2 focus:ring-gray-200"
-          placeholder="Name"
-          name="name"
+          className='w-full px-4 py-2 text-sm text-gray-700 bg-gray-100 rounded-lg outline-none focus:ring-2 focus:ring-gray-200'
+          placeholder='Name'
+          name='name'
         />
         <input
-          type="email"
+          type='email'
           value={formData.email}
           onChange={onInputChange}
-          className="w-full px-4 py-2 text-sm text-gray-700 bg-gray-100 rounded-lg outline-none focus:ring-2 focus:ring-gray-200"
-          placeholder="Email"
-          name="email"
+          className='w-full px-4 py-2 text-sm text-gray-700 bg-gray-100 rounded-lg outline-none focus:ring-2 focus:ring-gray-200'
+          placeholder='Email'
+          name='email'
         />
       </div>
-      <div className="grid grid-cols-1 gap-4 mb-4 text-sm">
+      <div className='grid grid-cols-1 gap-4 mb-4 text-sm'>
         <div>
           <input
             checked={formData.storeData}
             onChange={onInputChange}
-            type="checkbox"
-            id="storeData"
-            name="storeData"
-            value="true"
+            type='checkbox'
+            id='storeData'
+            name='storeData'
+            value='true'
           />
-          <label className="text-gray-500 cursor-pointer" htmlFor="storeData">
-            {" "}
+          <label className='text-gray-500 cursor-pointer' htmlFor='storeData'>
+            {' '}
             Save my name, email in this browser for the next time I comment.
           </label>
         </div>
       </div>
       {error && (
-        <p className="text-xs text-red-500">All fields are mandatory</p>
+        <p className='text-xs text-red-500'>All fields are mandatory</p>
       )}
-      <div className="mt-8">
+      <div className='mt-8'>
         <button
-          type="button"
+          type='button'
           onClick={handlePostSubmission}
-          className="inline-block px-4 py-2 font-medium text-white transition duration-500 bg-black rounded-lg cursor-pointer text-md ease hover:bg-indigo-900"
+          className='inline-block px-4 py-2 font-medium text-white transition duration-500 bg-black rounded-lg cursor-pointer text-md ease hover:bg-indigo-900'
         >
           Post Comment
         </button>
         {showSuccessMessage && (
-          <span className="float-right mt-3 text-sm font-semibold text-green-500">
+          <span className='float-right mt-3 text-sm font-semibold text-green-500'>
             Comment submitted for review
           </span>
         )}

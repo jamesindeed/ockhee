@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import React, { useState, useEffect } from 'react';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
-import { FeaturedPostCard } from "../components";
-import { getFeaturedPosts } from "../services";
+import { FeaturedPostCard } from '../components';
+import { getFeaturedPosts } from '../services';
 
 const responsive = {
   xxlDesktop: {
@@ -40,8 +40,8 @@ const FeaturedPosts = () => {
   }, []);
 
   return (
-    <div className="mt-5 max-w-7xl">
-      <Carousel ssr infinite responsive={responsive} itemClass="px-4">
+    <div className='mt-5 max-w-7xl'>
+      <Carousel ssr infinite responsive={responsive} itemClass='px-4'>
         {dataLoaded &&
           featuredPosts.map((post, index) => (
             <FeaturedPostCard key={index} post={post} />
