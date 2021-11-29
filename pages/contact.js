@@ -32,70 +32,62 @@ const contact = () => {
   }
 
   return (
-    <div className='grid h-screen grid-cols-2 gap-8 px-10 pt-10 bg-white md:pt-16'>
-      <div className='sm:col-span-2 md:col-span-1'>
-        <h2 className='text-4xl font-bold leading-tight text-gray-900 lg:text-5xl'>
-          Contact Me
-        </h2>
-        <div className='pt-2 text-gray-700'>
-          Hate forms? Send me an{' '}
-          <span className='underline'>
-            <a href='mailto:yr483azaa@mozmail.com'>email</a>
-          </span>{' '}
-          instead.
-        </div>
-        <div className='sm:mt-8 md:pr-4'>
-          <img src='/contact.svg' alt='contact'></img>
-        </div>
+    <div className='flex flex-col w-4/5 p-10 mx-auto my-5 align-middle bg-white border border-gray-200 rounded-lg md:w-2/3'>
+      <h2 className='text-3xl font-bold leading-tight text-gray-900 lg:text-5xl'>
+        Contact Me
+      </h2>
+      <div className='pt-2 pb-8 text-gray-700'>
+        Hate forms? Send me an{' '}
+        <span className='underline'>
+          <a href='mailto:yr483azaa@mozmail.com'>email</a>
+        </span>{' '}
+        instead.
       </div>
-
-      <div className='sm:col-span-2 md:col-span-1 sm:pt-5'>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <span className='text-sm font-bold text-gray-600 uppercase'>
-              Full Name
+      <form onSubmit={handleSubmit}>
+        <div>
+          <span className='text-sm font-bold text-gray-600 uppercase'>
+            Full Name
+          </span>
+          <input
+            className='w-full px-3 py-2 mt-1 text-sm text-gray-700 bg-gray-100 rounded-lg outline-none focus:ring-2 focus:ring-gray-200'
+            type='text'
+            placeholder=''
+            required
+            name='name'
+          ></input>
+        </div>
+        <div className='mt-8'>
+          <span className='text-sm font-bold text-gray-600 uppercase'>
+            Email
+          </span>
+          <input
+            className='w-full px-3 py-2 mt-1 text-sm text-gray-700 bg-gray-100 rounded-lg outline-none focus:ring-2 focus:ring-gray-200'
+            type='text'
+            required
+            name='email'
+          ></input>
+        </div>
+        <div className='mt-8'>
+          <span className='text-sm font-bold text-gray-600 uppercase'>
+            Message
+          </span>
+          <textarea
+            name='comment'
+            required
+            className='w-full p-3 mt-1 text-sm text-gray-700 bg-gray-100 rounded-lg outline-none resize-none h-30 min-h-40 max-h-100 focus:ring-2 focus:ring-gray-200'
+          ></textarea>
+        </div>
+        <div className='mt-8'>
+          <button className='w-full p-3 text-sm font-bold tracking-wide text-gray-100 uppercase transition bg-indigo-600 rounded-lg duration-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline'>
+            Send Message
+          </button>
+          {showSuccessMessage && (
+            <span className='float-right mt-3 text-sm font-semibold text-green-500'>
+              Comment submitted for review
             </span>
-            <input
-              className='w-full px-4 py-3 mt-2 text-sm text-gray-700 bg-gray-100 rounded-lg outline-none focus:ring-2 focus:ring-gray-200'
-              type='text'
-              placeholder=''
-              required
-              name='name'
-            ></input>
-          </div>
-          <div className='mt-8'>
-            <span className='text-sm font-bold text-gray-600 uppercase'>
-              Email
-            </span>
-            <input
-              className='w-full px-4 py-3 mt-2 text-sm text-gray-700 bg-gray-100 rounded-lg outline-none focus:ring-2 focus:ring-gray-200'
-              type='text'
-              required
-              name='email'
-            ></input>
-          </div>
-          <div className='mt-8'>
-            <span className='text-sm font-bold text-gray-600 uppercase'>
-              Message
-            </span>
-            <textarea
-              name='comment'
-              required
-              className='w-full h-40 p-4 mt-2 text-sm text-gray-700 bg-gray-100 rounded-lg outline-none resize-none min-h-40 max-h-100 focus:ring-2 focus:ring-gray-200'
-            ></textarea>
-          </div>
-          <div className='my-8'>
-            <button className='w-full p-3 text-sm font-bold tracking-wide text-gray-100 uppercase transition bg-indigo-600 rounded-lg duration-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline'>
-              Send Message
-            </button>
-            {showSuccessMessage && (
-              <span className='float-right mt-3 text-sm font-semibold text-green-500'>
-                Comment submitted for review
-              </span>
-            )}
-          </div>
-        </form>
-      </div>
+          )}
+        </div>
+      </form>
     </div>
   );
 };
