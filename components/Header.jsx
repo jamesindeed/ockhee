@@ -159,7 +159,7 @@ export default function Header() {
                     Catagories
                   </span>
 
-                  {categories.slice(0, 4).map((category, index) => (
+                  {categories.map((category, index) => (
                     <a
                       key={index}
                       href={`/category/${category.slug}`}
@@ -174,16 +174,6 @@ export default function Header() {
                       </span>
                     </a>
                   ))}
-
-                  <div className='text-sm'>
-                    <a
-                      href='/category'
-                      className='font-medium text-indigo-500 hover:text-indigo-400'
-                    >
-                      {' '}
-                      View all catagories <span aria-hidden='true'>&rarr;</span>
-                    </a>
-                  </div>
                 </nav>
               </div>
             </div>
