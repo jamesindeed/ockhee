@@ -30,7 +30,7 @@ export default function Header() {
   return (
     <Popover className='relative bg-white'>
       <div className='max-w-full mx-auto'>
-        <div className='flex items-center justify-between px-4 py-3 border-b border-gray-200 md:px-8 md:space-x-10'>
+        <div className='flex items-center justify-between px-4 py-3 pl-4 border-b border-gray-200 md:px-8 md:space-x-10'>
           <div className='flex justify-start lg:w-0 lg:flex-1'>
             <a href='/'>
               <span className='sr-only'>Logo</span>
@@ -41,58 +41,36 @@ export default function Header() {
                 src='/logo1.gif'
                 alt='Logo'
               />
-              {/* 
-              // !Animated Logo
-              <div className="scotch-logo liquid-clip--hidden">
-                <img className="scotch-logo__image" src="" />
-                <svg className="scotch-logo__liquid" viewBox="0 0 30 48">
-                  <defs>
-                    <clipPath id="clip-path--glass">
-                      <path
-                        className="liquid__path-container"
-                        d="M 8.6 1.5 c 0 13.33 -4.17 20 -3.75 23.33 a 9.17 8.33 0 0 0 20.83 0 c 0.42 -3.33 -3.75 -10 -3.75 -23.33 Z"
-                      ></path>
-                    </clipPath>
-                    <clipPath id="clip-path--liquid">
-                      <path
-                        className="liquid__path liquid__path--top-clip"
-                        d="M -80 22 C -75.08 16 -69.08 16 -64.17 22 S -53.25 28 -48.33 22 S -37.42 16 -32.5 22 S -21.58 28 -16.67 22 S -5.75 16 -0.83 22 S 10.08 28 15 22 S 25.92 16 30.83 22 S 41.75 28 46.67 22 S 57.58 16 62.5 22 S 73.42 28 78.33 22 S 89.25 16 94.17 22 S 105.08 28 110 22 l 0 30 l -190 0"
-                      ></path>
-                    </clipPath>
-                  </defs>
-                  <g clip-path="url(#clip-path--glass)">
-                    <circle
-                      className="liquid__drop liquid__drop--top liquid__drop--1"
-                      cx="18.3"
-                      cy="3.3"
-                      r="1.5"
-                    ></circle>
-                    <circle
-                      className="liquid__drop liquid__drop--bottom liquid__drop--2"
-                      cx="12"
-                      cy="5"
-                      r="1.5"
-                    ></circle>
+              {/* <svg
+                className=''
+                width='70'
+                height='60'
+                viewBox='0 0 120 100'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <g id='triangles'>
+                  <g id='lightGroup'>
                     <path
-                      className="liquid__path liquid__path--top"
-                      d="M -80 22 C -75.08 16 -69.08 16 -64.17 22 S -53.25 28 -48.33 22 S -37.42 16 -32.5 22 S -21.58 28 -16.67 22 S -5.75 16 -0.83 22 S 10.08 28 15 22 S 25.92 16 30.83 22 S 41.75 28 46.67 22 S 57.58 16 62.5 22 S 73.42 28 78.33 22 S 89.25 16 94.17 22 S 105.08 28 110 22 l 0 30 l -190 0"
-                    ></path>
-                    <path
-                      className="liquid__path liquid__path--bottom"
-                      d="M -70 24.5 C -65.92 18.5 -59.92 18.5 -55.83 24.5 S -45.75 30.5 -41.67 24.5 S -31.58 18.5 -27.5 24.5 S -17.42 30.5 -13.33 24.5 S -3.25 18.5 0.83 24.5 S 10.92 30.5 15 24.5 S 25.08 18.5 29.17 24.5 S 39.25 30.5 43.33 24.5 S 53.42 18.5 57.5 24.5 S 67.58 30.5 71.67 24.5 S 81.75 18.5 85.83 24.5 S 95.92 30.5 100 24.5 l 0 30 l -170 0"
-                    ></path>
-                    <g
-                      className="liquid__path--clip-container"
-                      clip-path="url(#clip-path--liquid)"
-                    >
-                      <path
-                        className="liquid__path liquid__path--bottom-clip"
-                        d="M -70 24.5 C -65.92 18.5 -59.92 18.5 -55.83 24.5 S -45.75 30.5 -41.67 24.5 S -31.58 18.5 -27.5 24.5 S -17.42 30.5 -13.33 24.5 S -3.25 18.5 0.83 24.5 S 10.92 30.5 15 24.5 S 25.08 18.5 29.17 24.5 S 39.25 30.5 43.33 24.5 S 53.42 18.5 57.5 24.5 S 67.58 30.5 71.67 24.5 S 81.75 18.5 85.83 24.5 S 95.92 30.5 100 24.5 l 0 30 l -170 0"
-                      ></path>
-                    </g>
+                      id='light1'
+                      opacity='0.6'
+                      d='M53.4872 46.3509C55.7436 47.6536 55.7436 50.9105 53.4872 52.2132L13.718 75.174C11.4615 76.4767 8.64104 74.8483 8.64104 72.2428L8.64104 26.3213C8.64104 23.7158 11.4616 22.0874 13.718 23.3901L53.4872 46.3509Z'
+                    />
                   </g>
-                </svg>
-              </div> */}
+                  <g id='darkGroup'>
+                    <path
+                      id='dark1'
+                      opacity='0.8'
+                      d='M74.9231 46.915C77.1795 48.2177 77.1795 51.4746 74.9231 52.7773L34.3077 76.2266C32.0513 77.5294 29.2308 75.9009 29.2308 73.2955L29.2308 26.3968C29.2308 23.7914 32.0513 22.1629 34.3077 23.4657L74.9231 46.915Z'
+                    />
+                    <path
+                      id='dark2'
+                      opacity='0'
+                      d='M54.6154 46.915C56.8718 48.2177 56.8718 51.4746 54.6154 52.7773L14 76.2266C11.7436 77.5294 8.92307 75.9009 8.92307 73.2955L8.92308 26.3968C8.92308 23.7914 11.7436 22.1629 14 23.4657L54.6154 46.915Z'
+                    />
+                  </g>
+                </g>
+              </svg> */}
             </a>
           </div>
           <div className='-my-2 -mr-2'>
