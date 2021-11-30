@@ -24,7 +24,7 @@ const CardAlt = ({ post }) => {
           <h2 className='text-2xl font-bold transition duration-400 hover:text-indigo-500'>
             <Link href={`/post/${post.slug}`}>{post.title}</Link>
           </h2>
-          <p className='mt-2 text-sm prose text-gray-600'>{post.excerpt}</p>
+          <p className='mt-2 text-sm text-gray-600'>{post.excerpt}</p>
           <div className='flex flex-row items-center mt-4'>
             <div className='w-8 h-8 mr-3 overflow-hidden align-middle rounded-full'>
               <img alt={post.author.name} src={post.author.photo.url} />
