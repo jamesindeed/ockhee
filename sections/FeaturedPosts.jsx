@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-import { FeaturedPostCard } from '../components';
+import { FeaturedPostCard, Loader } from '../components';
 import { getFeaturedPosts } from '../services';
 
 const responsive = {
@@ -38,6 +38,14 @@ const FeaturedPosts = () => {
       setDataLoaded(true);
     });
   }, []);
+
+  if (dataLoaded === false) {
+    return (
+      <div className='pt-5'>
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <div className='mt-5 max-w-7xl'>
