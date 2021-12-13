@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import { getPosts, getPostDetails } from '../../services';
 import { NextPosts } from '../../sections';
 
+import useInView from 'react-cool-inview';
+
 import {
   PostDetail,
   Categories,
@@ -20,6 +22,9 @@ const PostDetails = ({ post }) => {
   if (router.isFallback) {
     return <Loader />;
   }
+
+  const { observe, inView } = useInView();
+
   return (
     <div className='container px-10 mx-auto mt-5 mb-8 max-w-7xl'>
       <div className='grid grid-cols-1 gap-8 md:grid-cols-8 lg:grid-cols-12 '>
@@ -28,7 +33,7 @@ const PostDetails = ({ post }) => {
           <Author author={post.author} />
           <NextPosts slug={post.slug} createdAt={post.createdAt} />
           <CommentsForm slug={post.slug} />
-          <Comments slug={post.slug} />
+          <span ref={observe}>{inView && <Comments slug={post.slug} />}</span>
         </div>
         <div className='col-span-1 lg:col-span-4 md:col-span-3'>
           <div className='relative lg:sticky md:sticky md:top-8'>
