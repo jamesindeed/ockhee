@@ -2,6 +2,7 @@ import { FeaturedPosts } from '../sections';
 import Head from 'next/head';
 import { CardAlt, PostWidget, Categories } from '../components';
 import { getPosts } from '../services';
+// import InfiniteScroll from 'react-infinite-scroll-component';
 
 export default function Home({ posts }) {
   return (
