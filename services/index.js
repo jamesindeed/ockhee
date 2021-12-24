@@ -5,16 +5,11 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 export const getPosts = async () => {
   const POSTS = gql`
     query getPosts() {
-      postsConnection(
-        orderBy: createdAt_DESC
-        # first: 4
-        # skip: 0
-      ) {
+      postsConnection(orderBy: createdAt_DESC) {
         pageInfo {
           hasNextPage
           hasPreviousPage
           pageSize
-          
         }
         edges {
           cursor
