@@ -3,6 +3,7 @@ import moment from 'moment';
 import Prism from 'prismjs';
 
 const PostDetail = ({ post }) => {
+  const { featuredImage, categories, author, createdAt, title, content } = post;
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
 
@@ -92,15 +93,15 @@ const PostDetail = ({ post }) => {
       <div className='w-full p-0 pb-6 mb-8 overflow-hidden transition-all bg-white border border-gray-200 rounded-lg cursor-pointer card hover:-translate-y-1 duration-00 lg:p-6'>
         <div className='relative mb-6 overflow-hidden rounded-t-lg pb-80 lg:rounded-lg'>
           <img
-            src={post.featuredImage.url}
-            alt={post.title}
+            src={featuredImage.url}
+            alt={title}
             className='absolute object-cover object-top w-full shadow-sm h-80'
           />
         </div>
 
         <div className='px-6 py-2 lg:px-0'>
           <div className='flex flex-row flex-wrap'>
-            {post.categories.slice(0, 4).map((category, index) => (
+            {categories.slice(0, 4).map((category, index) => (
               <div
                 key={index}
                 className='px-2 py-1 mb-6 mr-2 text-xs text-indigo-700 uppercase bg-indigo-200 rounded-full'
@@ -111,18 +112,18 @@ const PostDetail = ({ post }) => {
           </div>
           <div className='flex flex-row items-center'>
             <div className='w-8 h-8 mr-3 overflow-hidden align-middle rounded-full'>
-              <img alt={post.author.name} src={post.author.photo.url} />
+              <img alt={author.name} src={author.photo.url} />
             </div>
-            <div className='mr-2 text-sm font-bold'>{post.author.name}</div>
+            <div className='mr-2 text-sm font-bold'>{author.name}</div>
             <div className='text-xs text-gray-400'>
-              {moment(post.createdAt).format('MMM DD, YYYY')}
+              {moment(createdAt).format('MMM DD, YYYY')}
             </div>
           </div>
           <h2 className='py-4 text-2xl font-bold transition duration-400 hover:text-indigo-500'>
-            {post.title}
+            {title}
           </h2>
           <div className='max-w-full prose text-md'>
-            {post.content.raw.children.map((typeObj, index) => {
+            {content.raw.children.map((typeObj, index) => {
               const children = typeObj.children.map((item, itemindex) =>
                 getContentFragment(itemindex, item.text, item)
               );
